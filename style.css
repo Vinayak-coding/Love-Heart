@@ -1,0 +1,55 @@
+/* Layout: one centered 800x800 stage that scales down to fit; a quiet replay control below. */
+:root {
+  --bg: #060208;
+  --fg: #e9c9cf;
+  --muted: #8a6a72;
+  --line: #2a1018;
+  --accent: #e60d24;
+  color-scheme: dark;
+}
+
+html, body { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  margin: 0;
+  padding-inline: 16px;
+  padding-block: 16px;
+  box-sizing: border-box;
+  font: 14px/1.4 -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.stage {
+  width: min(100%, 800px, calc(100vh - 90px));
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+}
+
+button {
+  font: inherit;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 6px 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+button:hover { border-color: var(--accent); }
+
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
